@@ -1,4 +1,45 @@
-# btech
+<img width="1366" height="116" alt="protótipo b tech" src="https://github.com/user-attachments/assets/56339761-3697-40c8-860f-a3aa984cfb36" />
 
-Criar um README.md para o repositório do projeto de vocês, descrevendo-o, minimamente, indicando: o problema a ser solucionado, a proposta de solução, as tecnologias que serão utilizadas, membros do grupo, e opcionalmente link para o quadro de tarefas (e demais informações que julgarem pertinentes)
-- Pesquisem por README's de outros projetos como referência
+# B Tech
+
+Sistema que organiza espaços e melhora o uso do tempo livre dos alunos através de clubes e atividades.
+
+
+## Problemática: 
+
+Atualmente enfrentamos o problema de muita ociosidade e falta de atividades recreativas entre os alunos em seu tempo livre.
+
+## Proposta:
+
+O sistema visa realizar a gestão de clubes de atividades, permitindo a entrada e saída do aluno no clube que desejar. 
+
+
+## Ferramentas
+
+ - Frontend: HTML5, CSS3
+ - Backend: Java (Spring Boot, Servlets ou Java SE)
+ - Banco de Dados: List em Java para substituição do banco de dados.
+
+## Membros 
+
+- Bruna Santos
+- Bruno Rodrigues 
+
+
+## Link Trello 
+
+https://trello.com/invite/b/69cbfa70b63b19e3a0cd2cfa/ATTIc0263a82497adbc91c48e28dacec0ede4D313BD2/projeto-senai
+
+
+
+## Passo a passo
+
+Este projeto segue os seguintes passos:
+
+- Faça o Fork do projeto;
+- Crie um Branch para sua feature;
+- Commit suas mudanças;
+- Push para o Branch;
+- Abra o Pull Request com descrição das mudanças.
+
+
