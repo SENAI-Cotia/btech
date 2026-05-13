@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>RecreAtiva - Cadastro</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/images/icons8-controle-de-video-game-50.ico}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+
+<body class="auth-page">
+
+<header class="auth-header">
+    <img th:src="@{/images/recreativalogo.png}" alt="recreativa" class="logo">
+</header>
+
+<main class="auth-container">
+    <div class="auth-card">
+
+        <h1>recreativa</h1>
+
+        <p class="msg-error" th:if="${error}" th:text="${error}"></p>
+
+        <form method="post" th:action="@{/register}" th:object="${registerUser}">
+
+            <div class="auth-input-group">
+
+                <label>Email:</label>
+                <input type="email"
+                       th:field="*{email}"
+                       placeholder="Digite seu email"
+                       required
+                       autofocus>
+
+                <label>Senha:</label>
+                <input type="password"
+                       th:field="*{password}"
+                       placeholder="Digite sua senha"
+                       required>
+
+                <label>Perfil:</label>
+                <select th:field="*{role}" style="width:100%; padding:15px; border:none; border-radius:25px; background-color:rgba(255,255,255,0.4); color:white; font-size:1rem;">
+                    <option value="ROLE_ALUNO">Aluno</option>
+                    <option value="ROLE_ADMIN">Administrador</option>
+                </select>
+
+                <button type="submit" class="btn-entrar">Criar conta</button>
+
+            </div>
+
+        </form>
+
+        <div class="link">
+            Já tem conta? <a th:href="@{/login}">Entrar</a>
+        </div>
+
+    </div>
+</main>
+
+<footer class="credits-footer">
+    <p>Bruna Santos e Bruno Santos - B Tech</p>
+</footer>
+
+</body>
+</html>

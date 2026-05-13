@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>RecreAtiva - Login</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/images/icons8-controle-de-video-game-50.ico}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+
+<body class="auth-page">
+
+<header class="auth-header">
+    <img th:src="@{/images/recreativalogo.png}" alt="recreativa" class="logo">
+</header>
+
+<main class="auth-container">
+    <div class="auth-card">
+
+        <h1>recreativa</h1>
+
+        <p class="msg-error" th:if="${param.error}">
+            Usuário ou senha inválidos.
+        </p>
+        <p class="msg-success" th:if="${param.logout}">
+            Você saiu com sucesso.
+        </p>
+        <p class="msg-success" th:if="${param.registered}">
+            Conta criada! Faça login.
+        </p>
+
+        <form method="post" th:action="@{/login}">
+            <div class="auth-input-group">
+
+                <label>Email:</label>
+                <input type="email"
+                       name="username"
+                       placeholder="Digite seu email"
+                       required
+                       autofocus>
+
+                <label>Senha:</label>
+                <input type="password"
+                       name="password"
+                       placeholder="Digite sua senha"
+                       required>
+
+                <button type="submit" class="btn-entrar">Entrar</button>
+
+            </div>
+        </form>
+
+        <div class="link">
+            Não tem conta? <a th:href="@{/register}">Cadastre-se</a>
+        </div>
+
+    </div>
+</main>
+
+<footer class="credits-footer">
+    <p>Bruna Santos e Bruno Santos - B Tech</p>
+</footer>
+
+</body>
+</html>

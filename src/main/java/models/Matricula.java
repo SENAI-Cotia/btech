@@ -1,35 +1,32 @@
-package br.com.btech.models;
+package models;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "matriculas")
-public class Matriculas {
+public class Matricula {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "aluno_id")
+    @JoinColumn(name = "aluno_id", nullable = false)
     private Aluno aluno;
 
     @ManyToOne
-    @JoinColumn(name = "clube_id")
+    @JoinColumn(name = "clube_id", nullable = false)
     private Clube clube;
 
     private LocalDate dataIngresso;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
-
     public Aluno getAluno() { return aluno; }
     public void setAluno(Aluno aluno) { this.aluno = aluno; }
-
     public Clube getClube() { return clube; }
     public void setClube(Clube clube) { this.clube = clube; }
-
     public LocalDate getDataIngresso() { return dataIngresso; }
     public void setDataIngresso(LocalDate dataIngresso) { this.dataIngresso = dataIngresso; }
 }
