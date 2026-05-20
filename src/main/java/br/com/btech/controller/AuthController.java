@@ -1,13 +1,13 @@
-package controller;
+package br.com.btech.controller;
 
-import models.User;
+import br.com.btech.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import services.UserService;
+import br.com.btech.services.UserService;
 
 @Controller
 public class AuthController {

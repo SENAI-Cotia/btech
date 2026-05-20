@@ -1,4 +1,4 @@
-.auth-page {
+body {
     background: radial-gradient(circle at 10% 10%, #1C4EBC 0%, #4aa2c4 100%);
     min-height: 100vh;
     display: flex;
@@ -6,11 +6,10 @@
     margin: 0;
     padding: 0;
     color: #FFFFFF;
-    font-family: sans-serif; /* Adicionado para melhor legibilidade */
+    font-family: Arial, sans-serif;
 }
 
-/* Header com a Logo */
-.auth-header {
+header {
     padding: 20px 50px;
     background-color: rgba(255, 255, 255, 0.8);
 }
@@ -19,17 +18,14 @@
     height: 60px;
 }
 
-/* Container Principal (Centralização) */
-.auth-container {
+.container {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
 }
 
-/* O Card de Login */
-.auth-card {
+.card {
     background-color: rgba(65, 137, 203, 0.85);
     width: 100%;
     max-width: 450px;
@@ -38,30 +34,29 @@
     border: 2px solid rgba(255, 255, 255, 0.3);
     text-align: center;
     color: white;
+    box-sizing: border-box;
 }
 
-.auth-card h1 {
+.card h1 {
     font-size: 2.5rem;
     margin-bottom: 30px;
     font-weight: bold;
     color: #04285c;
-    text-transform: lowercase; /* Para manter o estilo 'recreativa' */
 }
 
-/* Grupo de Inputs e Labels */
-.auth-input-group {
+.login {
     text-align: left;
     margin-bottom: 20px;
 }
 
-.auth-input-group label {
+.login label {
     display: block;
     margin-bottom: 8px;
     margin-top: 15px;
     font-size: 1.1rem;
 }
 
-.auth-input-group input {
+.login input {
     width: 100%;
     padding: 15px;
     border: none;
@@ -69,34 +64,45 @@
     background-color: rgba(255, 255, 255, 0.4);
     color: white;
     font-size: 1rem;
-    box-sizing: border-box; /* Garante que o padding não quebre a largura */
+    box-sizing: border-box;
+    outline: none;
 }
 
-.auth-input-group input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+.login input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
 }
 
-/* Mensagens de Erro e Sucesso */
-.msg-error, .msg-success {
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    font-size: 0.9rem;
+.tipo-usuario {
+    display: flex;
+    width: 290px;
+    height: 42px;
+    background-color: #a8c3da;
+    border-radius: 30px;
+    overflow: hidden;
+    margin: 30px auto 10px auto;
 }
 
-.msg-error {
-    background-color: rgba(255, 0, 0, 0.2);
-    color: #ffcccc;
+.btn-usuario {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.msg-success {
-    background-color: rgba(0, 255, 0, 0.1);
-    color: #ccffcc;
+.btn-usuario:first-child {
+    border-right: 2px solid #83b2db;
 }
 
-/* Botão Entrar */
+.btn-usuario.active {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
 .btn-entrar {
-    width: 100%; /* Ajustado para preencher o grupo de input */
+    width: 60%;
     padding: 12px;
     background-color: #004AAD;
     color: white;
@@ -105,7 +111,8 @@
     font-weight: bold;
     font-size: 1.1rem;
     cursor: pointer;
-    margin: 30px 0 10px 0;
+    margin: 20px auto 10px auto;
+    display: block;
     transition: background 0.3s;
 }
 
@@ -113,10 +120,9 @@
     background-color: #00337a;
 }
 
-/* Link de Cadastro */
 .link {
-    font-size: 0.9rem;
-    margin-top: 15px;
+    margin-top: 20px;
+    font-size: 0.95rem;
 }
 
 .link a {
@@ -125,15 +131,17 @@
     font-weight: bold;
 }
 
-.link a:hover {
-    text-decoration: underline;
+.msg-error {
+    background-color: rgba(255, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 15px;
 }
 
-/* Footer de Créditos */
-.credits-footer {
+footer {
     background-color: #004AAD;
     color: white;
     text-align: center;
-    padding: 15px;
+    padding: 10px;
     font-size: 0.9rem;
 }

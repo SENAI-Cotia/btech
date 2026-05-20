@@ -1,10 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>RecreAtiva - Home</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/images/icons8-controle-de-video-game-50.ico}">
+    <link rel="stylesheet" th:href="@{/alunoHome.css}">
+
 </head>
 <body>
 
+<div class="app-container">
+    <aside class="sidebar">
+        <nav class="icon">
+            <div class="nav">
+                <div class="nav-botao" id="btn-clubes">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/conference-call.png" alt="Clubes">
+                    <span>Clubes</span>
+                </div>
+            </div>
+            <div class="nav-botao">
+                <button class="logout-botao">
+                        <span>
+                            <a href="./login.html"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/shutdown.png" alt="Sair"></a>
+                        </span>
+                </button>
+            </div>
+        </nav>
+    </aside>
+
+    <aside class="sidebar-inscricao">
+        <section class="painel-inscrever">
+            <div class="sidebar-content">
+                <img id="sidebar-img" src="" alt="Imagem do Clube">
+                <h2 id="sidebar-titulo">Selecione um clube</h2>
+                <p id="sidebar-descricao"></p>
+
+                <div class="info-grupo">
+                    <h3>Dias</h3>
+                    <p id="sidebar-dias">--</p>
+                </div>
+
+                <div class="info-grupo">
+                    <h3>Horários</h3>
+                    <p id="sidebar-horario">--</p>
+                </div>
+
+                <button id="btn-inscrever" class="btn-primary">Inscrever-se</button>
+                <button id="btn-confirmar" class="btn-secondary">Confirmar</button>
+            </div>
+        </section>
+    </aside>
+
+    <main class="main">
+        <h2 class="tituloHome">CLUBES:</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <img src="imagens/uno.jpg" class="card-image">
+                <div class="card-body">
+                    <div class="card-texto">
+                        <h3>Clube do UNO</h3>
+                        <p>Divirta-se em partidas sem piedade e com sede de vitória</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="imagens/Xadrez.png" class="card-image">
+                <div class="card-body">
+                    <div class="card-texto">
+                        <h3>Clube de Xadrez</h3>
+                        <p>Estratégia, garra e raciocínio em um único jogo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="imagens/musica.jpg" class="card-image">
+                <div class="card-body">
+                    <div class="card-texto">
+                        <h3>Clube da Música</h3>
+                        <p>Embarque nessa sinfonia e se divirta!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="imagens/quebra cabeca.jpg" class="card-image">
+                <div class="card-body">
+                    <div class="card-texto">
+                        <h3>Quebra Cabeça</h3>
+                        <p>Divirta-se em partidas sem piedade e com sede de vitória</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="imagens/futebol.jpg" class="card-image">
+                <div class="card-body">
+                    <div class="card-texto">
+                        <h3>Futebol</h3>
+                        <p>Bateu, chutou, é gol!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="imagens/cinema.jpg" class="card-image">
+                <div class="card-body">
+                    <div class="card-texto">
+                        <h3>Clube do Cinema</h3>
+                        <p>Suspense, Romance, Comédia e tudo em uma tela só.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p><strong>Bruna Santos e Bruno Santos - B Tech</strong></p>
+        </footer>
+    </main>
+</div>
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package models;
+package br.com.btech.models;
 
 import jakarta.persistence.*;
 

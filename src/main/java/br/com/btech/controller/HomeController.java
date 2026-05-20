@@ -1,4 +1,4 @@
-package controller;
+package br.com.btech.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;

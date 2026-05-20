@@ -1,10 +1,10 @@
-package services;
+package br.com.btech.services;
 
-import models.User;
+import br.com.btech.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import repositories.UserRepository;
+import br.com.btech.repositories.UserRepository;
 
 @Service
 public class UserService {

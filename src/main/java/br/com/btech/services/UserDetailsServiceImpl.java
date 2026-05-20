@@ -1,13 +1,13 @@
-package services;
+package br.com.btech.services;
 
-import models.User;
+import br.com.btech.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import repositories.UserRepository;
+import br.com.btech.repositories.UserRepository;
 
 import java.util.List;
 
