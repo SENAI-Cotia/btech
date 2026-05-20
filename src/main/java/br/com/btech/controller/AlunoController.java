@@ -1,16 +1,15 @@
-package controller;
+package br.com.btech.controller;
 
-import models.Aluno;
-import models.Matricula;
+import br.com.btech.models.Matricula;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import repositories.AlunoRepository;
-import repositories.ClubeRepository;
-import repositories.MatriculaRepository;
-import repositories.UserRepository;
+import br.com.btech.repositories.AlunoRepository;
+import br.com.btech.repositories.ClubeRepository;
+import br.com.btech.repositories.MatriculaRepository;
+import br.com.btech.repositories.UserRepository;
 
 import java.time.LocalDate;
 

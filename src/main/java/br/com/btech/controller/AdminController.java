@@ -1,14 +1,13 @@
-package controller;
+package br.com.btech.controller;
 
-import models.Clube;
-import models.Aluno;
+import br.com.btech.models.Clube;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import repositories.AlunoRepository;
-import repositories.ClubeRepository;
-import repositories.MatriculaRepository;
+import br.com.btech.repositories.AlunoRepository;
+import br.com.btech.repositories.ClubeRepository;
+import br.com.btech.repositories.MatriculaRepository;
 
 @Controller
 @RequestMapping("/admin")

@@ -1,6 +1,6 @@
-package repositories;
+package br.com.btech.repositories;
 
-import models.Clube;
+import br.com.btech.models.Clube;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ClubeRepository extends JpaRepository<Clube, Long> {

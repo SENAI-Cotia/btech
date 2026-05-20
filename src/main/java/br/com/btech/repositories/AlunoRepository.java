@@ -1,6 +1,6 @@
-package repositories;
+package br.com.btech.repositories;
 
-import models.Aluno;
+import br.com.btech.models.Aluno;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 

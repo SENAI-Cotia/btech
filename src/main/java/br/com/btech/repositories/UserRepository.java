@@ -1,6 +1,6 @@
-package repositories;
+package br.com.btech.repositories;
 
-import models.User;
+import br.com.btech.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
