@@ -3,8 +3,7 @@
 # B Tech
  
 Sistema que organiza espaços e melhora o uso do tempo livre dos alunos através de clubes e atividades.
- 
- 
+
 ## Problemática:
  
 Atualmente enfrentamos o problema de muita ociosidade e falta de atividades recreativas entre os alunos em seu tempo livre.
@@ -12,13 +11,21 @@ Atualmente enfrentamos o problema de muita ociosidade e falta de atividades recr
 ## Proposta:
  
 O sistema visa realizar a gestão de clubes de atividades, permitindo a entrada e saída do aluno no clube que desejar.
+
+
+## Ferramentas:
+
+### Frontend
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
  
+### Backend
+![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
+![Java Servlets](https://img.shields.io/badge/Java_Servlets-007396?style=for-the-badge&logo=java&logoColor=white)
  
-## Ferramentas
- 
-- Frontend: HTML5, CSS3
-- Backend: Java (Spring Boot, Servlets ou Java SE)
-- Banco de Dados: List em Java para substituição do banco de dados.
+### Banco de Dados (Simulado)
+![Java List](https://img.shields.io/badge/Java_List-InMemory-007396?style=for-the-badge&logo=java&logoColor=white)
  
 ## Membros
  
