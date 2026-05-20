@@ -1,32 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RecreAtiva - Home</title>
-    <link rel="icon" type="image/x-icon" th:href="@{/images/icons8-controle-de-video-game-50.ico}">
-    <link rel="stylesheet" th:href="@{/alunoHome.css}">
-
+    <link rel="stylesheet" th:href="@{/css/alunohome.css}">
 </head>
 <body>
 
 <div class="app-container">
-    <aside class="sidebar">
-        <nav class="icon">
-            <div class="nav">
-                <div class="nav-botao" id="btn-clubes">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/conference-call.png" alt="Clubes">
-                    <span>Clubes</span>
+    <nav class="icon">
+        <div class="nav">
+            <div class="nav-botao" id="btn-clubes">
+                <div class="img-icon">
+                    <a th:href="@{/aluno/perfil}"><img src="image/icon-perfil.png" alt="Perfil"></a>
                 </div>
+                <span>Perfil</span>
             </div>
-            <div class="nav-botao">
-                <button class="logout-botao">
-                        <span>
-                            <a href="./login.html"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/shutdown.png" alt="Sair"></a>
-                        </span>
+        </div>
+
+        <div class="nav-botao">
+            <form th:action="@{/logout}" method="post">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                <button type="submit" class="logout-botao">
+                    <img th:src="@{/image/icons8-desligar-30.png}" alt="Sair">
                 </button>
-            </div>
-        </nav>
-    </aside>
+            </form>
+        </div>
+    </nav>
 
     <aside class="sidebar-inscricao">
         <section class="painel-inscrever">
@@ -41,12 +42,12 @@
                 </div>
 
                 <div class="info-grupo">
-                    <h3>Horários</h3>
+                    <h3>Horário:</h3>
                     <p id="sidebar-horario">--</p>
                 </div>
 
                 <button id="btn-inscrever" class="btn-primary">Inscrever-se</button>
-                <button id="btn-confirmar" class="btn-secondary">Confirmar</button>
+                <button id="btn-confirmar" class="btn-secondary">Fechar</button>
             </div>
         </section>
     </aside>
@@ -55,7 +56,7 @@
         <h2 class="tituloHome">CLUBES:</h2>
         <div class="cards-grid">
             <div class="card">
-                <img src="imagens/uno.jpg" class="card-image">
+                <img src="/image/uno.jpg" class="card-image">
                 <div class="card-body">
                     <div class="card-texto">
                         <h3>Clube do UNO</h3>
@@ -64,7 +65,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="imagens/Xadrez.png" class="card-image">
+                <img src="/image/Xadrez.png" class="card-image">
                 <div class="card-body">
                     <div class="card-texto">
                         <h3>Clube de Xadrez</h3>
@@ -73,7 +74,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="imagens/musica.jpg" class="card-image">
+                <img src="/image/musica.jpg" class="card-image">
                 <div class="card-body">
                     <div class="card-texto">
                         <h3>Clube da Música</h3>
@@ -82,16 +83,16 @@
                 </div>
             </div>
             <div class="card">
-                <img src="imagens/quebra cabeca.jpg" class="card-image">
+                <img src="/image/quebra%20cabeca.jpg" class="card-image">
                 <div class="card-body">
                     <div class="card-texto">
                         <h3>Quebra Cabeça</h3>
-                        <p>Divirta-se em partidas sem piedade e com sede de vitória</p>
+                        <p>Aonde cada peça vai? Encaixe os desafios!</p>
                     </div>
                 </div>
             </div>
             <div class="card">
-                <img src="imagens/futebol.jpg" class="card-image">
+                <img src="/image/futebol.jpg" class="card-image">
                 <div class="card-body">
                     <div class="card-texto">
                         <h3>Futebol</h3>
@@ -100,7 +101,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="imagens/cinema.jpg" class="card-image">
+                <img src="/image/cinema.jpg" class="card-image">
                 <div class="card-body">
                     <div class="card-texto">
                         <h3>Clube do Cinema</h3>
@@ -109,12 +110,9 @@
                 </div>
             </div>
         </div>
-
-        <footer class="footer">
-            <p><strong>Bruna Santos e Bruno Santos - B Tech</strong></p>
-        </footer>
     </main>
 </div>
-<script src="script.js"></script>
+
+<script th:src="@{/javascript/interacoes.js}"></script>
 </body>
 </html>

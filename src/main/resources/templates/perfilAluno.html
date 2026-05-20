@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>RecreAtiva - Perfil</title>
+    <link rel="stylesheet" th:href="@{/css/perfilAluno.css}">
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar">
+        <div class="perfil-box">
+            <h1>Perfil</h1>
+            <img th:src="@{/image/perfil-principal.png}" alt="Perfil">
+            <h2 th:text="${aluno != null ? aluno.nome : 'Aluno'}">Nome</h2>
+        </div>
+        <div class="nav-botao">
+            <form th:action="@{/logout}" method="post">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                <button type="submit" class="logout-botao">
+                    <img th:src="@{/image/icons8-desligar-30.png}" alt="Sair">
+                </button>
+            </form>
+        </div>
+    </aside>
+
+    <main class="conteudo">
+        <h1 class="titulo">CLUBES</h1>
+        <h2 class="subtitulo">Suas inscrições:</h2>
+
+        <section class="clubes-container">
+
+            <div th:if="${matriculas == null or #lists.isEmpty(matriculas)}">
+                <p class="sem-matriculas">Você ainda não está inscrito em nenhum clube.</p>
+            </div>
+
+            <div class="cards-grid" th:if="${matriculas != null and !#lists.isEmpty(matriculas)}">
+                <div class="card" th:each="matricula : ${matriculas}">
+                    <div class="card-body">
+                        <div class="card-texto">
+                            <h3 th:text="${matricula.clube.nome}">Nome do Clube</h3>
+                            <p th:text="${matricula.clube.descricao}">Descrição</p>
+                            <span class="card-tag" th:text="${matricula.clube.diaSemana}">Dias</span>
+                            <span class="card-tag" th:text="${matricula.clube.horario}">Horário</span>
+                        </div>
+                        <a th:href="@{/aluno/cancelar/{id}(id=${matricula.id})}" class="btn-cancelar">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+</div>
+
+</body>
+</html>

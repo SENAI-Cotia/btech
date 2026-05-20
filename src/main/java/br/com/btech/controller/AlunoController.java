@@ -29,7 +29,6 @@ public class AlunoController {
     @Autowired
     private UserRepository userRepository;
 
-    // ── Painel aluno ──
     @GetMapping
     public String painel(Authentication authentication, Model model) {
         String email = authentication.getName();
@@ -43,7 +42,18 @@ public class AlunoController {
         return "alunoHome";
     }
 
-    // ── Matricular em clube ──
+    @GetMapping("/perfil")
+    public String perfil(Authentication authentication, Model model) {
+        String email = authentication.getName();
+        userRepository.findByEmail(email).ifPresent(user -> {
+            alunoRepository.findByUserId(user.getId()).ifPresent(aluno -> {
+                model.addAttribute("aluno", aluno);
+                model.addAttribute("matriculas", matriculaRepository.findByAlunoId(aluno.getId()));
+            });
+        });
+        return "perfilAluno";
+    }
+
     @PostMapping("/matricular/{clubeId}")
     public String matricular(@PathVariable Long clubeId, Authentication authentication) {
         String email = authentication.getName();
@@ -61,10 +71,9 @@ public class AlunoController {
         return "redirect:/aluno";
     }
 
-    // ── Cancelar matrícula ──
     @GetMapping("/cancelar/{matriculaId}")
     public String cancelar(@PathVariable Long matriculaId) {
         matriculaRepository.deleteById(matriculaId);
-        return "redirect:/aluno";
+        return "redirect:/aluno/perfil";
     }
 }
