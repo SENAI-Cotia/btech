@@ -1,10 +1,193 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>B Tech - Sistema de Clubes</title>
+
+    <link rel="stylesheet" th:href="@{/css/home.css}">
 </head>
+
 <body>
+
+<div class="app-container">
+
+    <nav class="icon">
+
+        <div class="nav">
+
+            <div class="nav-botao" id="btn-clubes">
+
+                <div class="img-icon">
+                    <a th:href="@{/perfilAluno}">
+                        <img th:src="@{/images/icon-perfil.png}"
+                             alt="Perfil">
+                    </a>
+                </div>
+
+                <span>Perfil</span>
+            </div>
+
+        </div>
+
+        <div class="nav-botao">
+
+            <button class="logout-botao">
+                <span>
+                    <a th:href="@{/login}">
+                        <img th:src="@{https://img.icons8.com/ios-glyphs/30/ffffff/shutdown.png}"
+                             alt="Sair">
+                    </a>
+                </span>
+            </button>
+
+        </div>
+
+    </nav>
+
+    <aside class="sidebar-inscricao">
+
+        <section class="painel-inscrever">
+
+            <div class="sidebar-content">
+
+                <img id="sidebar-img"
+                     th:src="@{/images/default.png}"
+                     alt="Imagem do Clube">
+
+                <h2 id="sidebar-titulo">
+                    Selecione um clube
+                </h2>
+
+                <p id="sidebar-descricao"></p>
+
+                <div class="info-grupo">
+                    <h3>Dias</h3>
+                    <p id="sidebar-dias">--</p>
+                </div>
+
+                <div class="info-grupo">
+                    <h3>Horário:</h3>
+                    <p id="sidebar-horario">--</p>
+                </div>
+
+                <button id="btn-inscrever" class="btn-primary">
+                    Inscrever-se
+                </button>
+
+                <button id="btn-confirmar" class="btn-secondary">
+                    Confirmar
+                </button>
+
+            </div>
+
+        </section>
+
+    </aside>
+
+    <main class="main">
+
+        <h2 class="tituloHome">CLUBES:</h2>
+
+        <div class="cards-grid">
+
+            <div class="card">
+                <img th:src="@{/images/uno.jpg}"
+                     class="card-image"
+                     alt="UNO">
+
+                <div class="card-body">
+                    <div class="card-texto">
+                        <h3>Clube do UNO</h3>
+                        <p>
+                            Divirta-se em partidas sem piedade e com sede de vitória
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img th:src="@{/images/Xadrez.png}"
+                     class="card-image"
+                     alt="Xadrez">
+
+                <div class="card-body">
+                    <div class="card-texto">
+                        <h3>Clube de Xadrez</h3>
+                        <p>
+                            Estratégia, garra e raciocínio em um único jogo
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img th:src="@{/images/musica.jpg}"
+                     class="card-image"
+                     alt="Música">
+
+                <div class="card-body">
+                    <div class="card-texto">
+                        <h3>Clube da Música</h3>
+                        <p>
+                            Embarque nessa sinfonia e se divirta!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img th:src="@{/images/quebra-cabeca.jpg}"
+                     class="card-image"
+                     alt="Quebra Cabeça">
+
+                <div class="card-body">
+                    <div class="card-texto">
+                        <h3>Quebra Cabeça</h3>
+                        <p>
+                            Aonde cada peça vai? Encaixe os desafios!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img th:src="@{/images/futebol.jpg}"
+                     class="card-image"
+                     alt="Futebol">
+
+                <div class="card-body">
+                    <div class="card-texto">
+                        <h3>Futebol</h3>
+                        <p>
+                            Bateu, chutou, é gol!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img th:src="@{/images/cinema.jpg}"
+                     class="card-image"
+                     alt="Cinema">
+
+                <div class="card-body">
+                    <div class="card-texto">
+                        <h3>Clube do Cinema</h3>
+                        <p>
+                            Suspense, Romance, Comédia e tudo em uma tela só.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script th:src="@{/js/script.js}"></script>
 
 </body>
 </html>
