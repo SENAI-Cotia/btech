@@ -4,61 +4,60 @@
     <meta charset="UTF-8">
     <title>RecreAtiva - Cadastro</title>
     <link rel="icon" type="image/x-icon" th:href="@{/images/icons8-controle-de-video-game-50.ico}">
-    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/register.css}">
 </head>
+<body>
 
-<body class="auth-page">
-
-<header class="auth-header">
+<header>
     <img th:src="@{/images/recreativalogo.png}" alt="recreativa" class="logo">
 </header>
 
-<main class="auth-container">
-    <div class="auth-card">
-
+<main class="container">
+    <div class="card">
         <h1>recreativa</h1>
 
         <p class="msg-error" th:if="${error}" th:text="${error}"></p>
 
         <form method="post" th:action="@{/register}" th:object="${registerUser}">
 
-            <div class="auth-input-group">
-
+            <div class="login">
                 <label>Email:</label>
-                <input type="email"
-                       th:field="*{email}"
-                       placeholder="Digite seu email"
-                       required
-                       autofocus>
+                <input type="email" placeholder="Digite seu email" required autofocus th:field="*{email}"/>
 
                 <label>Senha:</label>
-                <input type="password"
-                       th:field="*{password}"
-                       placeholder="Digite sua senha"
-                       required>
-
-                <label>Perfil:</label>
-                <select th:field="*{role}" style="width:100%; padding:15px; border:none; border-radius:25px; background-color:rgba(255,255,255,0.4); color:white; font-size:1rem;">
-                    <option value="ROLE_ALUNO">Aluno</option>
-                    <option value="ROLE_ADMIN">Administrador</option>
-                </select>
-
-                <button type="submit" class="btn-entrar">Criar conta</button>
-
+                <input type="password" placeholder="Digite sua senha" required th:field="*{password}"/>
             </div>
+
+            <input type="hidden" id="roleInput" name="role" value="ROLE_ALUNO"/>
+
+            <div class="tipo-usuario">
+                <button type="button" class="btn-usuario active" id="btnAdm"
+                        onclick="selectRole('ROLE_ADMIN', this)">ADM</button>
+                <button type="button" class="btn-usuario" id="btnAluno"
+                        onclick="selectRole('ROLE_ALUNO', this)">ALUNO</button>
+            </div>
+
+            <button type="submit" class="btn-entrar">CRIAR</button>
 
         </form>
 
         <div class="link">
             Já tem conta? <a th:href="@{/login}">Entrar</a>
         </div>
-
     </div>
 </main>
 
-<footer class="credits-footer">
+<footer>
     <p>Bruna Santos e Bruno Santos - B Tech</p>
 </footer>
+
+<script>
+    function selectRole(role, btn) {
+        document.getElementById('roleInput').value = role;
+        document.querySelectorAll('.btn-usuario').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    }
+</script>
 
 </body>
 </html>

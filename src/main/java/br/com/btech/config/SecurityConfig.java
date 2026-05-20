@@ -1,5 +1,6 @@
 package br.com.btech.config;
 
+import br.com.btech.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +12,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+<<<<<<< HEAD
+=======
 import br.com.btech.services.UserDetailsServiceImpl;
+>>>>>>> a69f0bba804c653d8b16dab7a2cc044c0464b4a2
 
 @Configuration
 @EnableWebSecurity
@@ -38,7 +42,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(auth -> auth
-                .requestMatchers("/login", "/register", "/images/**", "/*.css", "/css/**").permitAll()
+                .requestMatchers("/login", "/register", "/css/**", "/image/**", "/images/**", "/static/**").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 .requestMatchers("/aluno/**").hasRole("ALUNO")
                 .anyRequest().authenticated()

@@ -1,0 +1,147 @@
+body {
+    background: radial-gradient(circle at 10% 10%, #1C4EBC 0%, #4aa2c4 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    padding: 20px 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.logo {
+    height: 60px;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: rgba(65, 137, 203, 0.85);
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    color: white;
+    box-sizing: border-box;
+}
+
+.card h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #04285c;
+}
+
+.login {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.login label {
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+.login input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: white;
+    font-size: 1rem;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.login input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.tipo-usuario {
+    display: flex;
+    width: 290px;
+    height: 42px;
+    background-color: #a8c3da;
+    border-radius: 30px;
+    overflow: hidden;
+    margin: 30px auto 10px auto;
+}
+
+.btn-usuario {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-usuario:first-child {
+    border-right: 2px solid #83b2db;
+}
+
+.btn-usuario.active {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.btn-entrar {
+    width: 60%;
+    padding: 12px;
+    background-color: #004AAD;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: 20px auto 10px auto;
+    display: block;
+    transition: background 0.3s;
+}
+
+.btn-entrar:hover {
+    background-color: #00337a;
+}
+
+.link {
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+
+.link a {
+    color: #04285c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.msg-error {
+    background-color: rgba(255, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+footer {
+    background-color: #004AAD;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+}
