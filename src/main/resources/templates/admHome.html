@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
-=======
-<<<<<<< HEAD
-<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <title>B Tech - Sistema de Clubes</title>
-
-    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecreAtiva - Home</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/image/icons8-controle-de-video-game-50.ico}">
+    <link rel="stylesheet" th:href="@{/css/admhome.css}">
 </head>
 
 <body>
@@ -16,72 +14,100 @@
 <div class="app-container">
 
     <nav class="icon">
-        <div class="nav">
 
+        <div class="nav">
             <div class="nav-botao" id="btn-clubes">
-                <img th:src="@{https://img.icons8.com/ios-filled/50/ffffff/conference-call.png}"
-                     alt="Clubes">
+                <img th:src="@{https://img.icons8.com/ios-filled/50/ffffff/conference-call.png}" alt="Clubes">
                 <span>Clubes</span>
             </div>
-
         </div>
 
         <div class="nav-botao">
             <button class="logout-botao">
                 <span>
                     <a th:href="@{/login}">
-                        <img th:src="@{https://img.icons8.com/ios-glyphs/30/ffffff/shutdown.png}"
-                             alt="Sair">
+                        <img th:src="@{https://img.icons8.com/ios-glyphs/30/ffffff/shutdown.png}" alt="Sair">
                     </a>
                 </span>
             </button>
         </div>
+
     </nav>
 
     <aside class="sidebar">
         <section class="painel-criar">
-
             <h1 class="painel-titulo">Criar o Clube</h1>
+            <form th:action="@{/admin/clube/salvar}" method="post"
+                  enctype="multipart/form-data" th:object="${novoClube}">
+                <div class="form-container">
+                    <div class="box">
+                        <label>Nome do Clube:</label>
+                        <input type="text" th:field="*{nome}" required>
+                    </div>
+                    <div class="box">
+                        <label>Descrição:</label>
+                        <input type="text" th:field="*{descricao}">
+                    </div>
+                    <div class="box">
+                        <label><strong>Dia(s):</strong></label>
+                        <input type="text" th:field="*{diaSemana}">
+                    </div>
+                    <div class="box">
+                        <label>Horário:</label>
+                        <input type="text" th:field="*{horario}">
+                    </div>
+                    <div class="box">
+                        <label>Imagem:</label>
+                        <div class="upload-container">
+                            <input type="file" id="imagem" name="imagemFile" accept="image/*" hidden>
+                            <label for="imagem" class="btn-upload">+</label>
+                            <span id="nome-arquivo">Nenhum arquivo</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="botaoCriar">CRIAR</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- FORMULÁRIO DE EDIÇÃO -->
+        <section class="painel-editar" style="display:none;">
+            <h1 class="painel-titulo">Editar Clube</h1>
+            <form id="form-editar" method="post" enctype="multipart/form-data">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+                <div class="form-container">
+                    ...
+                </div>
+            </form>
 
             <div class="form-container">
-
-                <div class="box">
-                    <label>Nome do Clube:</label>
-                    <input type="text">
+                    <div class="box">
+                        <label>Nome do Clube:</label>
+                        <input type="text" id="edit-nome" name="nome" required>
+                    </div>
+                    <div class="box">
+                        <label>Descrição:</label>
+                        <input type="text" id="edit-descricao" name="descricao">
+                    </div>
+                    <div class="box">
+                        <label><strong>Dia(s):</strong></label>
+                        <input type="text" id="edit-diaSemana" name="diaSemana">
+                    </div>
+                    <div class="box">
+                        <label>Horário:</label>
+                        <input type="text" id="edit-horario" name="horario">
+                    </div>
+                    <div class="box">
+                        <label>Imagem:</label>
+                        <div class="upload-container">
+                            <input type="file" id="imagem-editar" name="imagemFile" accept="image/*" hidden>
+                            <label for="imagem-editar" class="btn-upload">+</label>
+                            <span id="nome-arquivo-editar">Nenhum arquivo</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="botaoCriar">SALVAR</button>
                 </div>
-
-                <div class="box">
-                    <label>Descrição:</label>
-                    <input type="text">
-                </div>
-
-                <div class="box">
-                    <label><strong>Dia(as):</strong></label>
-                    <input type="text">
-                </div>
-
-                <div class="box">
-                    <label>Horário:</label>
-                    <input type="text">
-                </div>
-
-                <div class="box">
-                    <label>Imagem</label>
-                </div>
-
-                <div class="upload-container">
-                    <input type="file" id="imagem" hidden>
-
-                    <label for="imagem" class="btn-upload">
-                        +
-                    </label>
-                </div>
-
-                <button class="botaoCriar">
-                    CRIAR
-                </button>
-
-            </div>
+            </form>
         </section>
     </aside>
 
@@ -91,12 +117,10 @@
             <div class="sidebar-content">
 
                 <img id="sidebar-img"
-                     th:src="@{/images/default.png}"
+                     th:src="@{/image/default.png}"
                      alt="Imagem do Clube">
 
-                <h2 id="sidebar-titulo">
-                    Selecione um clube
-                </h2>
+                <h2 id="sidebar-titulo">Selecione um clube</h2>
 
                 <p id="sidebar-descricao"></p>
 
@@ -110,9 +134,8 @@
                     <p id="sidebar-horario">--</p>
                 </div>
 
-                <button id="btn-confirmar" class="btn-secondary">
-                    Excluir
-                </button>
+                <button id="btn-editar" class="btn-secondary">Editar</button>
+                <button id="btn-excluir" class="btn-secondary">Excluir</button>
 
             </div>
         </section>
@@ -124,68 +147,19 @@
 
         <div class="cards-grid">
 
-            <div class="card">
-                <img th:src="@{/images/uno.jpg}" class="card-image">
-
+            <div class="card"
+                 th:each="clube : ${clubes}"
+                 th:data-dias="${clube.diaSemana}"
+                 th:data-horario="${clube.horario}"
+                 th:data-id="${clube.id}">
+                <img th:src="@{/image/} + ${clube.imagem}"
+                     class="card-image"
+                     th:alt="${clube.nome}"
+                     onerror="this.src='/image/default.png'">
                 <div class="card-body">
                     <div class="card-texto">
-                        <h3>Clube do UNO</h3>
-                        <p>Divirta-se em partidas sem piedade e com sede de vitória</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img th:src="@{/images/Xadrez.png}" class="card-image">
-
-                <div class="card-body">
-                    <div class="card-texto">
-                        <h3>Clube de Xadrez</h3>
-                        <p>Estratégia, garra e raciocínio em um único jogo</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img th:src="@{/images/musica.jpg}" class="card-image">
-
-                <div class="card-body">
-                    <div class="card-texto">
-                        <h3>Clube da Música</h3>
-                        <p>Embarque nessa sinfonia e se divirta!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img th:src="@{/images/quebra-cabeca.jpg}" class="card-image">
-
-                <div class="card-body">
-                    <div class="card-texto">
-                        <h3>Quebra Cabeça</h3>
-                        <p>Aonde cada peça vai? Encaixe os desafios!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img th:src="@{/images/futebol.jpg}" class="card-image">
-
-                <div class="card-body">
-                    <div class="card-texto">
-                        <h3>Futebol</h3>
-                        <p>Bateu, chutou, é gol!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img th:src="@{/images/cinema.jpg}" class="card-image">
-
-                <div class="card-body">
-                    <div class="card-texto">
-                        <h3>Clube do Cinema</h3>
-                        <p>Suspense, Romance, Comédia e tudo em uma tela só.</p>
+                        <h3 th:text="${clube.nome}">Nome do Clube</h3>
+                        <p th:text="${clube.descricao}">Descrição</p>
                     </div>
                 </div>
             </div>
@@ -201,169 +175,7 @@
 
 </div>
 
-<script th:src="@{/js/script.js}"></script>
+<script th:src="@{/javascript/interacoes.js}"></script>
 
 </body>
 </html>
-=======
-<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
->>>>>>> 5f1ee205e6a429928e9f0436195559b19d5eb4f8
-<head>
-    <meta charset="UTF-8">
-    <title>RecreAtiva - Home</title>
-    <link rel="icon" type="image/x-icon" th:href="@{/images/icons8-controle-de-video-game-50.ico}">
-    <link rel="stylesheet" th:href="@{/css/admhome.css}">
-
-    </head>
-    <body>
-
-    <div class="app-container">
-        <nav class="icon">
-            <div class="nav">
-                <div class="nav-botao" id="btn-clubes">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/conference-call.png" alt="Clubes">
-                    <span>Clubes</span>
-                </div>
-            </div>
-            <div class="nav-botao">
-                <form th:action="@{/logout}" method="post">
-                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
-                    <button type="submit" class="logout-botao">
-                        <img th:src="@{/image/icons8-desligar-30.png}" alt="Sair">
-                    </button>
-                </form>
-            </div>
-        </nav>
-
-        <aside class="sidebar">
-            <section class="painel-criar">
-                <h1 class="painel-titulo">Criar o Clube</h1>
-                <div class="form-container">
-                    <div class="box">
-                        <label>Nome do Clube:</label>
-                        <input type="text">
-                    </div>
-
-                    <div class="box">
-                        <label>Descrição:</label>
-                        <input type="text">
-                    </div>
-
-                    <div class="box">
-                        <label><strong>Dia(as):</strong></label>
-                        <input type="text">
-                    </div>
-
-                    <div class="box">
-                        <label>Horário:</label>
-                        <input type="text">
-                    </div>
-
-                    <div class="box">
-                        <label>Imagem</label>
-                    </div>
-
-                    <div class="upload-container">
-                        <input type="file" id="imagem" hidden>
-                        <label for="imagem" class="btn-upload">
-                            +
-                        </label>
-                    </div>
-
-                    <button class="botaoCriar">CRIAR</button>
-                </div>
-            </section>
-        </aside>
-
-        <aside class="sidebar-inscricao">
-            <section class="painel-inscrever">
-                <div class="sidebar-content">
-                    <img id="sidebar-img" src="" alt="Imagem do Clube">
-                    <h2 id="sidebar-titulo">Selecione um clube</h2>
-                    <p id="sidebar-descricao"></p>
-
-                    <div class="info-grupo">
-                        <h3>Dias</h3>
-                        <p id="sidebar-dias">--</p>
-                    </div>
-
-                    <div class="info-grupo">
-                        <h3>Horário:</h3>
-                        <p id="sidebar-horario">--</p>
-                    </div>
-
-                    <button id="btn-confirmar" class="btn-secondary">Excluir</button>
-                </div>
-            </section>
-        </aside>
-
-        <main class="main">
-            <h2 class="tituloHome">CLUBES:</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <img src="imagens/uno.jpg" class="card-image">
-                    <div class="card-body">
-                        <div class="card-texto">
-                            <h3>Clube do UNO</h3>
-                            <p>Divirta-se em partidas sem piedade e com sede de vitória</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="imagens/Xadrez.png" class="card-image">
-                    <div class="card-body">
-                        <div class="card-texto">
-                            <h3>Clube de Xadrez</h3>
-                            <p>Estratégia, garra e raciocínio em um único jogo</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="imagens/musica.jpg" class="card-image">
-                    <div class="card-body">
-                        <div class="card-texto">
-                            <h3>Clube da Música</h3>
-                            <p>Embarque nessa sinfonia e se divirta!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="imagens/quebra cabeca.jpg" class="card-image">
-                    <div class="card-body">
-                        <div class="card-texto">
-                            <h3>Quebra Cabeça</h3>
-                            <p>Aonde cada peça vai? Encaixe os desafios!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="imagens/futebol.jpg" class="card-image">
-                    <div class="card-body">
-                        <div class="card-texto">
-                            <h3>Futebol</h3>
-                            <p>Bateu, chutou, é gol!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="imagens/cinema.jpg" class="card-image">
-                    <div class="card-body">
-                        <div class="card-texto">
-                            <h3>Clube do Cinema</h3>
-                            <p>Suspense, Romance, Comédia e tudo em uma tela só.</p>
-                        </div>
-                    </div>
-                </div>
-                <button href="   " class="card-add">
-                    <div class="icone">
-                        +
-                    </div>
-                    <p>Criar novo Clube</p>
-                </button>
-            </div>
-        </main>
-    </div>
-    <script src="script.js"></script>
-    </body>
-    </html>
->>>>>>> 44dd35992e3f290404d9563cd72ae77cc578233d

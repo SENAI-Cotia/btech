@@ -33,7 +33,7 @@ public class AlunoController {
     public String painel(Authentication authentication, Model model) {
         String email = authentication.getName();
         userRepository.findByEmail(email).ifPresent(user -> {
-            alunoRepository.findByUserId(user.getId()).ifPresent(aluno -> {
+            alunoRepository.findByUser_Id(user.getId()).ifPresent(aluno -> {
                 model.addAttribute("aluno", aluno);
                 model.addAttribute("matriculas", matriculaRepository.findByAlunoId(aluno.getId()));
             });
@@ -46,7 +46,7 @@ public class AlunoController {
     public String perfil(Authentication authentication, Model model) {
         String email = authentication.getName();
         userRepository.findByEmail(email).ifPresent(user -> {
-            alunoRepository.findByUserId(user.getId()).ifPresent(aluno -> {
+            alunoRepository.findByUser_Id(user.getId()).ifPresent(aluno -> {
                 model.addAttribute("aluno", aluno);
                 model.addAttribute("matriculas", matriculaRepository.findByAlunoId(aluno.getId()));
             });
@@ -58,7 +58,7 @@ public class AlunoController {
     public String matricular(@PathVariable Long clubeId, Authentication authentication) {
         String email = authentication.getName();
         userRepository.findByEmail(email).ifPresent(user -> {
-            alunoRepository.findByUserId(user.getId()).ifPresent(aluno -> {
+            alunoRepository.findByUser_Id(user.getId()).ifPresent(aluno -> {
                 clubeRepository.findById(clubeId).ifPresent(clube -> {
                     Matricula matricula = new Matricula();
                     matricula.setAluno(aluno);

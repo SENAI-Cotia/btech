@@ -16,14 +16,20 @@ public class Clube {
     @Column(length = 50)
     private String area;
 
+    @Column(length = 255)
+    private String imagem;
+
+    public String getImagem() { return imagem; }
+    public void setImagem(String imagem) { this.imagem = imagem; }
+
     private Integer vagas;
 
     private String descricao;
 
-    @Column(length = 20)
+    @Column(length = 100)
     private String diaSemana;
 
-    @Column(length = 10)
+    @Column(length = 50)
     private String horario;
 
     public Long getId() { return id; }

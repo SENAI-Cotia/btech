@@ -32,6 +32,7 @@ public class AuthController {
             userService.register(user.getEmail(), user.getPassword(), user.getRole());
             return "redirect:/login?registered";
         } catch (Exception e) {
+            model.addAttribute("registerUser", user); // ← adiciona isso
             model.addAttribute("error", "Email já cadastrado.");
             return "register";
         }

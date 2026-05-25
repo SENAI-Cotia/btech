@@ -26,7 +26,7 @@ body {
 }
 
 .sidebar {
-    display: flex;
+    display: none;
     height: 100%;
 }
 
@@ -109,6 +109,8 @@ body {
     border-top-right-radius: 35px;
     border-bottom-right-radius: 35px;
     margin-left: -15px;
+    display: none;
+    display: none;
 }
 
 .painel-titulo {
@@ -277,6 +279,16 @@ body {
     font-size: 0.85rem;
 }
 
+.painel-editar {
+    width: 380px;
+    background-color: var(--azul-escuro);
+    padding: 40px 30px;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+    margin-left: -15px;
+    display: none;
+}
+
 /*aréa que só tem para o aluno*/
 
 .sidebar-inscricao {
@@ -285,17 +297,18 @@ body {
     background-color: var(--azul-escuro);
     color: white;
     padding: 40px 30px;
-    display: flex;
+    display: none; /* <- muda para none por padrão */
     flex-direction: column;
     align-items: center;
-    border-radius: 0 40px 40px 0;
-    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    flex-shrink: 0;
-
     border-top-right-radius: 35px;
     border-bottom-right-radius: 35px;
     margin-left: -15px;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.sidebar-inscricao.active {
+    display: flex;
 }
 
 .painel-inscrever, .sidebar-content {
