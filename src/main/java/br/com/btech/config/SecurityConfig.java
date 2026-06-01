@@ -38,7 +38,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(auth -> auth
-                .requestMatchers("/login", "/register", "/css/**", "/image/**", "/images/**", "/static/**").permitAll()
+                .requestMatchers("/login", "/register", "/css/**", "/image/**", "/images/**", "/javascript/**", "/static/**").permitAll()
+                .requestMatchers("/admin/clube/imagem/**").permitAll()   // <- imagem dos clubes liberada (leitura pública)
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 .requestMatchers("/aluno/**").hasRole("ALUNO")
                 .anyRequest().authenticated()
