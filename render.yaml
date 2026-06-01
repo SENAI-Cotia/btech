@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: btech
+    env: java
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/btech-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: DATABASE_URL
+        value: jdbc:postgresql://db.qjpjbgjujiojzqdnifwq.supabase.co:5432/postgres
+      - key: DATABASE_USERNAME
+        value: postgres
+      - key: DATABASE_PASSWORD
+        value: Navios@28btech.
