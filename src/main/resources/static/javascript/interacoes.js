@@ -132,4 +132,12 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById('nome-arquivo-editar').textContent = this.files[0]?.name || 'Nenhum arquivo';
         });
     }
+
+    // ─── ALUNO: fechar sidebar ────────────────────────────────────
+    const btnConfirmar = document.getElementById("btn-confirmar");
+        if (btnConfirmar) {
+            btnConfirmar.addEventListener("click", () => {
+                sidebar.classList.remove("active");
+        });
+    }
 });
