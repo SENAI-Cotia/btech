@@ -2,6 +2,8 @@ package br.com.btech.controller;
 
 import br.com.btech.models.Clube;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,8 +12,6 @@ import br.com.btech.repositories.ClubeRepository;
 import br.com.btech.repositories.MatriculaRepository;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 @Controller
 @RequestMapping("/admin")
@@ -47,10 +47,9 @@ public class AdminController {
                               @RequestParam("imagemFile") MultipartFile imagemFile) throws IOException {
 
         if (!imagemFile.isEmpty()) {
-            String nomeArquivo = imagemFile.getOriginalFilename();
-            String caminho = "src/main/resources/static/image/" + nomeArquivo;
-            Files.write(Paths.get(caminho), imagemFile.getBytes());
-            clube.setImagem(nomeArquivo);
+            clube.setImagem(imagemFile.getOriginalFilename());
+            clube.setImagemData(imagemFile.getBytes());
+            clube.setImagemTipo(imagemFile.getContentType());
         }
 
         clubeRepository.save(clube);
@@ -71,14 +70,27 @@ public class AdminController {
         existente.setHorario(clube.getHorario());
 
         if (!imagemFile.isEmpty()) {
-            String nomeArquivo = imagemFile.getOriginalFilename();
-            String caminho = "src/main/resources/static/image/" + nomeArquivo;
-            Files.write(Paths.get(caminho), imagemFile.getBytes());
-            existente.setImagem(nomeArquivo);
+            existente.setImagem(imagemFile.getOriginalFilename());
+            existente.setImagemData(imagemFile.getBytes());
+            existente.setImagemTipo(imagemFile.getContentType());
         }
 
         clubeRepository.save(existente);
         return "redirect:/admin";
+    }
+
+    // ── Servir imagem do banco ──
+    @GetMapping("/clube/imagem/{id}")
+    @ResponseBody
+    public ResponseEntity<byte[]> imagemClube(@PathVariable Long id) {
+        Clube clube = clubeRepository.findById(id).orElse(null);
+        if (clube == null || clube.getImagemData() == null) {
+            return ResponseEntity.notFound().build();
+        }
+        MediaType tipo = clube.getImagemTipo() != null
+                ? MediaType.parseMediaType(clube.getImagemTipo())
+                : MediaType.IMAGE_JPEG;
+        return ResponseEntity.ok().contentType(tipo).body(clube.getImagemData());
     }
 
     @GetMapping("/clube/deletar/{id}")

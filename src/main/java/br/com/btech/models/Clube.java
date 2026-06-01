@@ -19,8 +19,11 @@ public class Clube {
     @Column(length = 255)
     private String imagem;
 
-    public String getImagem() { return imagem; }
-    public void setImagem(String imagem) { this.imagem = imagem; }
+    @Column(name = "imagem_data", columnDefinition = "bytea")
+    private byte[] imagemData;
+
+    @Column(name = "imagem_tipo", length = 100)
+    private String imagemTipo;
 
     private Integer vagas;
 
@@ -38,6 +41,12 @@ public class Clube {
     public void setNome(String nome) { this.nome = nome; }
     public String getArea() { return area; }
     public void setArea(String area) { this.area = area; }
+    public String getImagem() { return imagem; }
+    public void setImagem(String imagem) { this.imagem = imagem; }
+    public byte[] getImagemData() { return imagemData; }
+    public void setImagemData(byte[] imagemData) { this.imagemData = imagemData; }
+    public String getImagemTipo() { return imagemTipo; }
+    public void setImagemTipo(String imagemTipo) { this.imagemTipo = imagemTipo; }
     public Integer getVagas() { return vagas; }
     public void setVagas(Integer vagas) { this.vagas = vagas; }
     public String getDescricao() { return descricao; }

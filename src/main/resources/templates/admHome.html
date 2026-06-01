@@ -152,7 +152,7 @@
                  th:data-dias="${clube.diaSemana}"
                  th:data-horario="${clube.horario}"
                  th:data-id="${clube.id}">
-                <img th:src="@{/image/} + ${clube.imagem}"
+                <img th:src="@{'/admin/clube/imagem/' + ${clube.id}}"
                      class="card-image"
                      th:alt="${clube.nome}"
                      onerror="this.src='/image/default.png'">
